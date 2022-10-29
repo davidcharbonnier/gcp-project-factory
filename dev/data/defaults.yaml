@@ -1,0 +1,21 @@
+# skip boilerplate check
+
+#billing_account_id: 012345-67890A-BCDEF0
+
+# [opt] Setup for billing alerts
+billing_alert:
+  amount: 100
+  thresholds:
+    current: [0.5, 0.8]
+    forecasted: [0.5, 0.8]
+  credit_treatment: INCLUDE_ALL_CREDITS
+
+# [opt] Contacts for billing alerts and important notifications
+essential_contacts: ["gcp-organization-admins@davidcharbonnier.fr"]
+
+# [opt] Labels set for all projects
+labels:
+  environment: dev
+
+# [opt] Additional notification channels for billing
+notification_channels: []
