@@ -78,7 +78,7 @@ service_identities_iam:
   # service project attachment
 vpc:
   # [opt] If set, enables the container API
-  gke_setup:
+  # gke_setup:
   #  # Grants "roles/container.hostServiceAgentUser" to the container robot if set
   #  enable_host_service_agent: false
   #
