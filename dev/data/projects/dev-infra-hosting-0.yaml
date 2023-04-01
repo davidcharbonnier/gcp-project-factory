@@ -68,6 +68,7 @@ org_policies:
 # [opt] APIs to enable on the project.
 services:
   - sqladmin.googleapis.com
+  - run.googleapis.com
 
 # [opt] Roles to assign to the service identities in service => [roles] format
 service_identities_iam:
@@ -79,7 +80,7 @@ service_identities_iam:
   # service project attachment
 vpc:
   # [opt] If set, enables the container API
-  gke_setup:
+  # gke_setup:
   #  # Grants "roles/container.hostServiceAgentUser" to the container robot if set
   #  enable_host_service_agent: false
   #
@@ -92,5 +93,5 @@ vpc:
   # [opt] Subnets in the host project where principals will be granted networkUser
   # in region/subnet-name => [principals]
   subnets_iam:
-#     northamerica-northeast1/dev-pf-infra-hosting-nane1:
-#       - serviceAccount:terraform@dch-dev-infra-hosting-0.iam.gserviceaccount.com
+     northamerica-northeast1/dev-pf-infra-hosting-nane1:
+       - serviceAccount:dch-prod-teams-infra-0@dch-prod-iac-core-0.iam.gserviceaccount.com
