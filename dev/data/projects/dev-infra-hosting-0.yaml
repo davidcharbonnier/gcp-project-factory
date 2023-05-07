@@ -63,8 +63,7 @@ org_policies:
   run.allowedIngress:
     rules:
     - allow:
-        values:
-        - all
+        all: true
   iam.allowedPolicyMemberDomains:
     rules:
     - allow:
