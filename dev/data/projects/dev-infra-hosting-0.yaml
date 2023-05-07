@@ -47,17 +47,19 @@ folder_id: folders/192492037923
 #  environment: dev
 
 # [opt] Org policy overrides defined at project level
-org_policies:
-  policy_boolean:
-    constraints/iam.disableServiceAccountKeyCreation: false
-#    constraints/compute.disableGuestAttributesAccess: true
-  policy_list:
-#    constraints/compute.trustedImageProjects:
-#      inherit_from_parent: null
-#      status: true
-#      suggested_value: null
-#      values:
+#org_policies:
+#  compute.disableGuestAttributesAccess:
+#    rules:
+#    - enforce: true
+#  compute.trustedImageProjects:
+#    rules:
+#    - allow:
+#        values:
 #        - projects/fast-dev-iac-core-0
+#  compute.vmExternalIpAccess:
+#    rules:
+#      - deny:
+#          all: true
 
 # [opt] Service account to create for the project and their roles on the project
 # in name => [roles] format
@@ -69,9 +71,6 @@ org_policies:
 services:
   - sqladmin.googleapis.com
   - run.googleapis.com
-  - vpcaccess.googleapis.com
-  - compute.googleapis.com
-  - servicenetworking.googleapis.com
 
 # [opt] Roles to assign to the service identities in service => [roles] format
 service_identities_iam:

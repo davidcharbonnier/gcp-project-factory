@@ -17,12 +17,16 @@
 #TODO: tfdoc annotations
 
 variable "billing_account" {
-  # tfdoc:variable:source 00-bootstrap
-  description = "Billing account id and organization id ('nnnnnnnn' or null)."
+  # tfdoc:variable:source 0-bootstrap
+  description = "Billing account id. If billing account is not part of the same org set `is_org_level` to false."
   type = object({
-    id              = string
-    organization_id = number
+    id           = string
+    is_org_level = optional(bool, true)
   })
+  validation {
+    condition     = var.billing_account.is_org_level != null
+    error_message = "Invalid `null` value for `billing_account.is_org_level`."
+  }
 }
 
 variable "data_dir" {
@@ -31,21 +35,31 @@ variable "data_dir" {
   default     = "data/projects"
 }
 
-variable "environment_dns_zone" {
-  # tfdoc:variable:source 02-networking
-  description = "DNS zone suffix for environment."
-  type        = string
-  default     = null
-}
-
 variable "defaults_file" {
   description = "Relative path for the file storing the project factory configuration."
   type        = string
   default     = "data/defaults.yaml"
 }
 
+variable "environment_dns_zone" {
+  # tfdoc:variable:source 2-networking
+  description = "DNS zone suffix for environment."
+  type        = string
+  default     = null
+}
+
+variable "host_project_ids" {
+  # tfdoc:variable:source 2-networking
+  description = "Host project for the shared VPC."
+  type = object({
+    dev-spoke-0  = string
+    prod-spoke-0 = string
+  })
+  default = null
+}
+
 variable "prefix" {
-  # tfdoc:variable:source 00-bootstrap
+  # tfdoc:variable:source 0-bootstrap
   description = "Prefix used for resources that need unique names. Use 9 characters or less."
   type        = string
 
@@ -56,19 +70,11 @@ variable "prefix" {
 }
 
 variable "vpc_self_links" {
-  # tfdoc:variable:source 02-networking
+  # tfdoc:variable:source 2-networking
   description = "Self link for the shared VPC."
   type = object({
-    dev-spoke-0 = string
-  })
-  default = null
-}
-
-variable "host_project_ids" {
-  # tfdoc:variable:source 02-networking
-  description = "Host project for the shared VPC."
-  type = object({
-    dev-spoke-0 = string
+    dev-spoke-0  = string
+    prod-spoke-0 = string
   })
   default = null
 }
