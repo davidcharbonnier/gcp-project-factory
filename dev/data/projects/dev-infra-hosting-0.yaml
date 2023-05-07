@@ -47,7 +47,7 @@ folder_id: folders/192492037923
 #  environment: dev
 
 # [opt] Org policy overrides defined at project level
-#org_policies:
+org_policies:
 #  compute.disableGuestAttributesAccess:
 #    rules:
 #    - enforce: true
@@ -58,8 +58,17 @@ folder_id: folders/192492037923
 #        - projects/fast-dev-iac-core-0
 #  compute.vmExternalIpAccess:
 #    rules:
-#      - deny:
-#          all: true
+#    - deny:
+#        all: true
+  run.allowedIngress:
+    rules:
+    - allow:
+        values:
+        - all
+  iam.allowedPolicyMemberDomains:
+    rules:
+    - allow:
+        all: true
 
 # [opt] Service account to create for the project and their roles on the project
 # in name => [roles] format
