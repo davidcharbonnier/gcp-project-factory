@@ -33,7 +33,7 @@ locals {
 }
 
 module "projects" {
-  source                 = "git@github.com:GoogleCloudPlatform/cloud-foundation-fabric.git//blueprints/factories/project-factory?ref=v21.0.0"
+  source                 = "git@github.com:GoogleCloudPlatform/cloud-foundation-fabric.git//blueprints/factories/project-factory?ref=v24.0.0"
   for_each               = local.projects
   defaults               = local.defaults
   project_id             = each.key
@@ -44,7 +44,7 @@ module "projects" {
   folder_id              = try(each.value.folder_id, local.defaults.folder_id)
   group_iam              = try(each.value.group_iam, {})
   iam                    = try(each.value.iam, {})
-  kms_service_agents     = try(each.value.kms, {})
+  kms_service_agents     = try(each.value.kms_service_agents, {})
   labels                 = try(each.value.labels, {})
   org_policies           = try(each.value.org_policies, null)
   prefix                 = var.prefix
