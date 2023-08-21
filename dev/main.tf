@@ -33,7 +33,7 @@ locals {
 }
 
 module "projects" {
-  source                 = "git@github.com:GoogleCloudPlatform/cloud-foundation-fabric.git//blueprints/factories/project-factory?ref=v24.0.0"
+  source                 = "git@github.com:GoogleCloudPlatform/cloud-foundation-fabric.git//blueprints/factories/project-factory?ref=v25.0.0"
   for_each               = local.projects
   defaults               = local.defaults
   project_id             = each.key
