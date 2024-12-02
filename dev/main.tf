@@ -17,7 +17,7 @@
 # tfdoc:file:description Project factory.
 
 module "projects" {
-  source = "git@github.com:GoogleCloudPlatform/cloud-foundation-fabric.git//blueprints/factories/project-factory?ref=v27.0.0"
+  source = "git@github.com:GoogleCloudPlatform/cloud-foundation-fabric.git//blueprints/factories/project-factory?ref=v28.0.0"
   data_defaults = {
     billing_account = var.billing_account.id
     # more defaults are available, check the project factory variables
@@ -33,7 +33,7 @@ module "projects" {
   data_overrides = {
     prefix = "${var.prefix}-dev"
   }
-  factory_data = var.factory_data
+  factory_data_path = var.factory_data_path
 }
 
 
