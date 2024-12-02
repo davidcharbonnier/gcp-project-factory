@@ -17,7 +17,7 @@
 # tfdoc:file:description Project factory.
 
 module "projects" {
-  source = "git@github.com:GoogleCloudPlatform/cloud-foundation-fabric.git//modules/project-factory?ref=v30.0.0"
+  source = "git@github.com:GoogleCloudPlatform/cloud-foundation-fabric.git//modules/project-factory?ref=v33.0.0"
   data_defaults = {
     billing_account = var.billing_account.id
     # more defaults are available, check the project factory variables
