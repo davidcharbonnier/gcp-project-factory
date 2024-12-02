@@ -84,6 +84,15 @@ jobs:
           done
         working-directory: ./prod
 
+      - id: tfsec
+        if: github.event.action != 'closed'
+        name: Code security scanner
+        uses: aquasecurity/tfsec-pr-commenter-action@v1.2.0
+        with:
+          tfsec_args: --soft-fail
+          soft_fail_commenter: true
+          github_token: ${{ github.token }}
+
       - id: tf-setup
         name: Set up Terraform
         uses: hashicorp/setup-terraform@v2.0.3

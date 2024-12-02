@@ -23,7 +23,7 @@
 #  - team-a-contacts@example.com
 
 # Folder the project will be created as children of
-folder_id: folders/192492037923
+parent: folders/192492037923
 
 # [opt] Authoritative IAM bindings in group => [roles] format
 #group_iam:
@@ -77,9 +77,9 @@ org_policies:
 
 # [opt] APIs to enable on the project.
 services:
-  - sqladmin.googleapis.com
-  - compute.googleapis.com
-  - run.googleapis.com
+- sqladmin.googleapis.com
+- compute.googleapis.com
+- run.googleapis.com
 
 # [opt] Roles to assign to the service identities in service => [roles] format
 service_identities_iam:
@@ -104,5 +104,5 @@ vpc:
   # [opt] Subnets in the host project where principals will be granted networkUser
   # in region/subnet-name => [principals]
   subnets_iam:
-     northamerica-northeast1/dev-pf-infra-hosting-nane1:
-       - serviceAccount:dch-prod-teams-infra-0@dch-prod-iac-core-0.iam.gserviceaccount.com
+    northamerica-northeast1/dev-pf-infra-hosting-nane1:
+    - serviceAccount:dch-prod-teams-infra-0@dch-prod-iac-core-0.iam.gserviceaccount.com
