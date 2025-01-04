@@ -77,9 +77,10 @@ org_policies:
 
 # [opt] APIs to enable on the project.
 services:
-  - sqladmin.googleapis.com
-  - compute.googleapis.com
-  - run.googleapis.com
+- sqladmin.googleapis.com
+- compute.googleapis.com
+- run.googleapis.com
+- cloudscheduler.googleapis.com
 
 # [opt] Roles to assign to the service identities in service => [roles] format
 service_identities_iam:
