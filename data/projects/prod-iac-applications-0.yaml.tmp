@@ -1,0 +1,4 @@
+parent: applicatons
+services:
+  - compute.googleapis.com
+  - storage.googleapis.com
