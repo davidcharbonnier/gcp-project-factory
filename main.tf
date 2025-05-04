@@ -17,10 +17,11 @@
 # tfdoc:file:description Project factory.
 
 module "projects" {
-  source = "git@github.com:GoogleCloudPlatform/cloud-foundation-fabric.git//modules/project-factory?ref=v34.1.0"
+  source = "git@github.com:GoogleCloudPlatform/cloud-foundation-fabric.git//modules/project-factory?ref=v35.1.0"
   data_defaults = {
     # more defaults are available, check the project factory variables
-    billing_account = var.billing_account.id
+    billing_account  = var.billing_account.id
+    storage_location = var.locations.gcs
   }
   data_merges = {
     services = [
