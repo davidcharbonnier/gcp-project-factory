@@ -14,7 +14,7 @@
 
 # yaml-language-server: $schema=../../../schemas/folder.schema.json
 
-name: A la carte
+name: Budget
 parent: applications
 # iam_by_principals:
 #   "group:team-a-admins@example.com":
